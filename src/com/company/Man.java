@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Man extends Human{
 
-    boolean gender=true;
+    boolean gender;
 
     @Override
     public String toString() {
@@ -24,15 +24,8 @@ public class Man extends Human{
     }
     public static Man create(){
         Scanner sc = new Scanner(System.in);
-        String b, c, a1;
+        String b, c;
         float d, e;
-//        System.out.println("Пол?//y,m for man");
-//        a1 = sc.next();
-//        //        a= sc.hasNext("m");
-//        String a2 = "y";
-//        String a3 = "n";
-//        a = a1.equals(a2);
-//        sc.nextLine();
         System.out.println("Имя?");
         b = sc.next();
         System.out.println("Фамилия?");

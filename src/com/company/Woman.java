@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Woman extends Human{
-    boolean gender=false;
+    boolean gender;
 
     public Woman(boolean gender, String name, String surname, float rost, float ves) {
         super(name, surname, rost, ves);
@@ -23,15 +23,8 @@ public class Woman extends Human{
     }
     public static Woman create(){
         Scanner sc = new Scanner(System.in);
-        String b, c, a1;
+        String b, c;
         float d, e;
-//        System.out.println("Пол?//y,m for man");
-//        a1 = sc.next();
-//        //        a= sc.hasNext("m");
-//        String a2 = "y";
-//        String a3 = "n";
-//        a = a1.equals(a2);
-//        sc.nextLine();
         System.out.println("Имя?");
         b = sc.next();
         System.out.println("Фамилия?");
@@ -47,7 +40,6 @@ public class Woman extends Human{
     public static void bornBaby(Object a, Object b) {
         Human firstHum = (Human) a;
         Human secHum = (Human) b;
-//        Human baby=(Human) c;
         Random rand2 = new Random();
         Scanner scan = new Scanner(System.in);
         boolean gend = rand2.nextBoolean();
@@ -77,11 +69,9 @@ public class Woman extends Human{
         if (gend) {
             Man baby1 = new Man(true, n, s, r, v);
             System.out.println(baby1);
-//                  return baby1;
         } else {
             Woman baby1 = new Woman(false, n, s+"a", r, v);
             System.out.println(baby1);
-//                  return baby1;
         }
 
 

@@ -27,37 +27,27 @@ public class Human {
     }
 
     public static Human newHum() {
-        System.out.println("Пол?//y,m for man");
+        System.out.println("Пол?//y, for MAN,<any key> for WOMAN");
         Scanner scan = new Scanner(System.in);
         boolean a;
-        a = scan.hasNext("m");
-        {
-            if (a) {
-                Man man = Man.create();
-                return man;
-            } else {
-                Woman woman = Woman.create();
-                return woman;
-            }
+        a = scan.hasNext("y");
+        if (a) {
+            Man man = Man.create();
+            return man;
+        } else {
+            Woman woman = Woman.create();
+            return woman;
         }
-
     }
+
     public boolean speak(Object a, Object b) {
         Human firstHum = (Human) a;
         Human secHum = (Human) b;
         System.out.println("Будут ли общаться?");
-        if ((firstHum instanceof Woman)&&( secHum instanceof Woman)) {
+        if ((firstHum instanceof Woman) && (secHum instanceof Woman)) {
             System.out.println("Да, жен+жен");
             return true;
         }
-//        if ((firstHum instanceof Man)&&(secHum instanceof Woman ))  {
-//            System.out.println("Да, муж+жен");
-//            return true;
-//        }
-//        if ((firstHum instanceof Woman) && (secHum instanceof Man)) {
-//            System.out.println("Да, жен+муж");
-//            return true;
-//        }
         if ((firstHum instanceof Man) && (secHum instanceof Man)) {
             Random rand = new Random();
             if (rand.nextBoolean()) {
@@ -68,12 +58,12 @@ public class Human {
                 return false;
             }
 
-        }
-       else {
+        } else {
             System.out.println("Да, жен+муж или муж+жен");
             return true;
         }
     }
+
     public boolean obshestvo(Object a, Object b) {
         Human firstHum = (Human) a;
         Human secHum = (Human) b;
@@ -81,7 +71,7 @@ public class Human {
         double r1 = rand.nextDouble();
         System.out.println("Будут ли терпеть друг друга?");
         System.out.println(r1);
-        if ((firstHum instanceof Woman)&&( secHum instanceof Woman)) {
+        if ((firstHum instanceof Woman) && (secHum instanceof Woman)) {
             if (r1 < 0.05) {
                 System.out.println("Да, жен+жен,с вероятностью 5%");
                 return true;
@@ -89,29 +79,7 @@ public class Human {
                 System.out.println("Нет, жен+жен,с вероятностью 95%");
                 return false;
             }
-
         }
-//        if ((firstHum.gender && !secHum.gender) || (!firstHum.gender && secHum.gender)) {
-//            if (r1 < 0.7) {
-//                System.out.println("Да,муж+жен, с вероятностью 70%");
-//                return true;
-//            } else {
-//                System.out.println("Нет, муж+жен, с вероятностью 30%");
-//                return false;
-//            }
-//
-//        }
-//        if (!firstHum.gender && secHum.gender) {
-//            Random rand = new Random();
-//            if (rand.nextInt(1) < 0.7) {
-//                System.out.println("Да,жен+муж, с вероятностью 70%");
-//                return true;
-//            } else {
-//                System.out.println("Нет, жен+муж, с вероятностью 30%");
-//                return false;
-//            }
-//
-//        }
         if ((firstHum instanceof Man) && (secHum instanceof Man)) {
             if (r1 <= 0.056) {
                 System.out.println("Да, муж+муж,с вероятностью 5,6%");
@@ -132,6 +100,7 @@ public class Human {
         }
 
     }
+
     public boolean vmeste(Object a, Object b) {
         Human firstHum = (Human) a;
         Human secHum = (Human) b;
@@ -153,12 +122,11 @@ public class Human {
             return false;
         }
     }
+
     public Human relat(Object a, Object b) {
         Human firstHum = (Human) a;
         Human secHum = (Human) b;
-        if (firstHum.getClass() == secHum.getClass())  {
-//            Man mun=new Man(true,"d","d",12,3);
-            //           mun.bornBaby(firstHum,secHum);
+        if (firstHum.getClass() == secHum.getClass()) {
             System.out.println(speak(firstHum, secHum));
             System.out.println(obshestvo(firstHum, secHum));
             System.out.println(vmeste(firstHum, secHum));
@@ -166,15 +134,14 @@ public class Human {
             return null;
         }
         if (speak(firstHum, secHum) && obshestvo(firstHum, secHum) && vmeste(firstHum, secHum)) {
-            //           Human bab1=Born.bornBaby(firstHum,secHum);
-//            Woman wuman = new Woman(false, "xxx", "xxxx", 160, 45);
-           bornBaby(firstHum, secHum);
-            return new Human( "f", "ff,", 155, 56);
+            bornBaby(firstHum, secHum);
+            return new Human("f", "ff,", 155, 56);
         } else {
             System.out.println("Не вышло, разбежались");
             return null;
         }
 
     }
+
 
 }
